@@ -1,4 +1,4 @@
-NepaliFunctions v1.3.0
+NepaliFunctions v1.3.1
 ======================
 
 ![Screenshot](https://github.com/sajanm/nepali-functions/blob/master/bg.jpg)
