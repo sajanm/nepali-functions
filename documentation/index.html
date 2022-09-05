@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>nepali-functions 1.3.1 | Documentation</title>
+  <title>nepali-functions 1.4.0 | Documentation</title>
   <meta name='description' content='A collection of functions helpful for Nepali Dates and others.'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>nepali-functions</h3>
-          <div class='mb1'><code>1.3.1</code></div>
+          <div class='mb1'><code>1.4.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -259,9 +259,29 @@
               
                 
                 <li><a
+                  href='#getbsdayunicodeshort'
+                  class="">
+                  GetBsDayUnicodeShort
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#getaddays'
                   class="">
                   GetAdDays
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getadday'
+                  class="">
+                  GetAdDay
                   
                 </a>
                 
@@ -279,9 +299,9 @@
               
                 
                 <li><a
-                  href='#getadday'
+                  href='#getaddayshort'
                   class="">
-                  GetAdDay
+                  GetAdDayShort
                   
                 </a>
                 
@@ -309,6 +329,16 @@
               
                 
                 <li><a
+                  href='#getadfullday'
+                  class="">
+                  GetAdFullDay
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#getbsfullday'
                   class="">
                   GetBsFullDay
@@ -322,16 +352,6 @@
                   href='#getbsfulldayinunicode'
                   class="">
                   GetBsFullDayInUnicode
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#getadfullday'
-                  class="">
-                  GetAdFullDay
                   
                 </a>
                 
@@ -389,6 +409,26 @@
               
                 
                 <li><a
+                  href='#comparebsdates'
+                  class="">
+                  CompareBsDates
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#betweenbsdates'
+                  class="">
+                  BetweenBsDates
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#converttounicode'
                   class="">
                   ConvertToUnicode
@@ -409,16 +449,6 @@
               
                 
                 <li><a
-                  href='#get2digitno'
-                  class="">
-                  Get2DigitNo
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#numbertowords'
                   class="">
                   NumberToWords
@@ -432,16 +462,6 @@
                   href='#numbertowordsunicode'
                   class="">
                   NumberToWordsUnicode
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#comparebsdates'
-                  class="">
-                  CompareBsDates
                   
                 </a>
                 
@@ -751,7 +771,7 @@
 
   <p>This function converts AD date object to BS date object.</p>
 
-    <div class='pre p1 fill-light mt0'>new AD2BS(adDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new AD2BS(adDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), sourceDateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, returnDateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -768,8 +788,26 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>adDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any AD date object
+            <span class='code bold'>adDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any AD date object or AD date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sourceDateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if adDate is string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>returnDateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats
 
           </div>
           
@@ -805,6 +843,18 @@
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AD2BS({<span class="hljs-attr">year</span>: <span class="hljs-number">2008</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">28</span>})
 <span class="hljs-comment">// returns {year: 2065, month: 2, day: 15}</span></pre>
     
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AD2BS(<span class="hljs-string">"2008-05-28"</span>)
+<span class="hljs-comment">// returns 2065-02-15</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AD2BS(<span class="hljs-string">"2008-05-28"</span>, <span class="hljs-string">"YYYY-MM-DD"</span>)
+<span class="hljs-comment">// returns 2065-02-15</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AD2BS(<span class="hljs-string">"2008-05-28"</span>, <span class="hljs-string">"YYYY-MM-DD"</span>, <span class="hljs-string">"YYYY/MM/DD"</span>)
+<span class="hljs-comment">// returns 2065/02/15</span></pre>
+    
   
 
   
@@ -834,7 +884,7 @@
 
   <p>This function converts BS date object to AD date object.</p>
 
-    <div class='pre p1 fill-light mt0'>new BS2AD(bsDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new BS2AD(bsDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), sourceDateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, returnDateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -851,8 +901,26 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>bsDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any BS date object
+            <span class='code bold'>bsDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any BS date object or BS date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sourceDateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if bsDate is string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>returnDateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats
 
           </div>
           
@@ -888,6 +956,18 @@
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BS2AD({<span class="hljs-attr">year</span>: <span class="hljs-number">2065</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">15</span>})
 <span class="hljs-comment">// returns {year: 2008, month: 5, day: 28}</span></pre>
     
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BS2AD(<span class="hljs-string">"2065-02-15"</span>)
+<span class="hljs-comment">// returns 2008-05-28</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BS2AD(<span class="hljs-string">"2065-02-15"</span>, <span class="hljs-string">"YYYY-MM-DD"</span>)
+<span class="hljs-comment">// returns 2008-05-28</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BS2AD(<span class="hljs-string">"2065-02-15"</span>, <span class="hljs-string">"YYYY-MM-DD"</span>, <span class="hljs-string">"YYYY/MM/DD"</span>)
+<span class="hljs-comment">// returns 2008/05/28</span></pre>
+    
   
 
   
@@ -917,7 +997,7 @@
 
   <p>This function checks the validity of the BS date.</p>
 
-    <div class='pre p1 fill-light mt0'>new ValidateBsDate(bsDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+    <div class='pre p1 fill-light mt0'>new ValidateBsDate(bsDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
   
   
 
@@ -934,8 +1014,17 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>bsDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any BS date object
+            <span class='code bold'>bsDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any BS date object or BS date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if bsDate is string
 
           </div>
           
@@ -979,6 +1068,22 @@
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.ValidateBsDate({<span class="hljs-attr">year</span>: <span class="hljs-number">2000</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">12</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">32</span>})
 <span class="hljs-comment">// Returns false</span></pre>
     
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.ValidateBsDate(<span class="hljs-string">"2078-01-05"</span>)
+<span class="hljs-comment">// Returns true</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.ValidateBsDate(<span class="hljs-string">"2078-01-32"</span>)
+<span class="hljs-comment">// Returns false</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.ValidateBsDate(<span class="hljs-string">"2078/01/30"</span>)
+<span class="hljs-comment">// Returns false</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.ValidateBsDate(<span class="hljs-string">"2078/01/30"</span>, <span class="hljs-string">"YYYY/MM/DD"</span>)
+<span class="hljs-comment">// Returns true</span></pre>
+    
   
 
   
@@ -1008,7 +1113,7 @@
 
   <p>This function returns the current AD date object.</p>
 
-    <div class='pre p1 fill-light mt0'>new GetCurrentAdDate(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>new GetCurrentAdDate(dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1019,6 +1124,20 @@
   
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats.
+
+          </div>
+          
+        </div>
+      
+    </div>
   
 
   
@@ -1026,8 +1145,8 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
-        the current AD date object.
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>:
+        the current AD date object or string if date format is provided.
 
       
     
@@ -1043,6 +1162,11 @@
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetCurrentAdDate()
 <span class="hljs-comment">// Returns {year: 2020, month: 1, day: 1}</span>
+<span class="hljs-comment">// if today"s date is 1st January 2020</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetCurrentAdDate(<span class="hljs-string">'YYYY-MM-DD'</span>)
+<span class="hljs-comment">// Returns 2020-01-01</span>
 <span class="hljs-comment">// if today"s date is 1st January 2020</span></pre>
     
   
@@ -1272,7 +1396,7 @@
 
   <p>This function returns the current BS date object.</p>
 
-    <div class='pre p1 fill-light mt0'>new GetCurrentBsDate(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>new GetCurrentBsDate(dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
   
   
 
@@ -1283,6 +1407,20 @@
   
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats
+
+          </div>
+          
+        </div>
+      
+    </div>
   
 
   
@@ -1290,8 +1428,8 @@
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
-        the current BS date object.
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>:
+        the current BS date object or string if date format is provided.
 
       
     
@@ -1306,6 +1444,11 @@
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetCurrentBsDate()
+<span class="hljs-comment">// Returns {year: 2076, month: 9, day: 1}</span>
+<span class="hljs-comment">// if today"s date is 1st Poush 2076</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetCurrentBsDate(<span class="hljs-string">'YYYY-MM-DD'</span>)
 <span class="hljs-comment">// Returns {year: 2076, month: 9, day: 1}</span>
 <span class="hljs-comment">// if today"s date is 1st Poush 2076</span></pre>
     
@@ -1813,7 +1956,7 @@
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsMonth(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// Returns Bhadra</span></pre>
+<span class="hljs-comment">// Returns Ashoj</span></pre>
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsMonth(<span class="hljs-number">11</span>)
@@ -1973,7 +2116,7 @@
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsMonthInUnicode(<span class="hljs-number">5</span>)
-<span class="hljs-comment">// Returns भाद्र</span></pre>
+<span class="hljs-comment">// Returns आश्विन</span></pre>
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsMonthInUnicode(<span class="hljs-number">11</span>)
@@ -2223,6 +2366,93 @@
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='getbsdayunicodeshort'>
+      GetBsDayUnicodeShort
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function returns the BS day in unicode.</p>
+
+    <div class='pre p1 fill-light mt0'>new GetBsDayUnicodeShort(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>number</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    any number
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        the BS day in unicode.
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsDayUnicodeShort(<span class="hljs-number">0</span>)
+<span class="hljs-comment">// Returns आ</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsDayUnicodeShort(<span class="hljs-number">4</span>)
+<span class="hljs-comment">// Returns बि</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsDayUnicodeShort(<span class="hljs-number">7</span>)
+<span class="hljs-comment">// Returns null</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='getaddays'>
       GetAdDays
     </h3>
@@ -2268,71 +2498,6 @@
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdDays()
 <span class="hljs-comment">// Returns ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='getaddaysshort'>
-      GetAdDaysShort
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>This function returns the AD days Short.</p>
-
-    <div class='pre p1 fill-light mt0'>new GetAdDaysShort(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>:
-        the AD days short.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdDaysShort()
-<span class="hljs-comment">// Returns ["S", "M", "T", "W", "T", "F", "S"]</span></pre>
     
   
 
@@ -2440,17 +2605,82 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='getbsfulldate'>
-      GetBsFullDate
+    <h3 class='fl m0' id='getaddaysshort'>
+      GetAdDaysShort
     </h3>
     
     
   </div>
   
 
-  <p>This function returns the full BS date.</p>
+  <p>This function returns the AD days Short.</p>
 
-    <div class='pre p1 fill-light mt0'>new GetBsFullDate(bsDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, unicodeFlag: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new GetAdDaysShort(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>:
+        the AD days short.
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdDaysShort()
+<span class="hljs-comment">// Returns ["S", "M", "T", "W", "T", "F", "S"]</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getaddayshort'>
+      GetAdDayShort
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function returns the AD day.</p>
+
+    <div class='pre p1 fill-light mt0'>new GetAdDayShort(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -2467,8 +2697,95 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>bsDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
+            <span class='code bold'>number</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    any number
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        the AD day.
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdDaysShort(<span class="hljs-number">0</span>)
+<span class="hljs-comment">// Returns S</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdDaysShort(<span class="hljs-number">5</span>)
+<span class="hljs-comment">// Returns F</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdDaysShort(<span class="hljs-number">7</span>)
+<span class="hljs-comment">// Returns null</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getbsfulldate'>
+      GetBsFullDate
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function returns the full BS date.</p>
+
+    <div class='pre p1 fill-light mt0'>new GetBsFullDate(bsDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), unicodeFlag: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>bsDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any date object or date string
 
           </div>
           
@@ -2478,6 +2795,15 @@
           <div>
             <span class='code bold'>unicodeFlag</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
 	    true or false
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if bsDate is string
 
           </div>
           
@@ -2514,11 +2840,19 @@
 <span class="hljs-comment">// Returns 2 Bhadra 2075</span></pre>
     
       
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDate(<span class="hljs-string">"2075-03-15"</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">"YYYY-MM-DD"</span>)
+<span class="hljs-comment">// Returns 2 Bhadra 2075</span></pre>
+    
+      
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDate({<span class="hljs-attr">year</span>: <span class="hljs-number">2075</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">15</span>}, <span class="hljs-literal">true</span>)
 <span class="hljs-comment">// Returns १५ अषाढ २०७५</span></pre>
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDate({<span class="hljs-attr">year</span>: <span class="hljs-number">2075</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>}, <span class="hljs-literal">true</span>)
+<span class="hljs-comment">// Returns २ भाद्र २०७५</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDate(<span class="hljs-string">"2075-03-15"</span>, <span class="hljs-literal">true</span>, <span class="hljs-string">"YYYY-MM-DD"</span>)
 <span class="hljs-comment">// Returns २ भाद्र २०७५</span></pre>
     
   
@@ -2550,7 +2884,7 @@
 
   <p>This function returns the full AD date.</p>
 
-    <div class='pre p1 fill-light mt0'>new GetAdFullDate(adDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new GetAdFullDate(adDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -2567,8 +2901,17 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>adDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
+            <span class='code bold'>adDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if adDate is string
 
           </div>
           
@@ -2604,6 +2947,106 @@
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDate({<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>})
 <span class="hljs-comment">// Returns 2 May 2003</span></pre>
     
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDate(<span class="hljs-string">"2003/05/02"</span>, <span class="hljs-string">"YYYY/MM/DD"</span>)
+<span class="hljs-comment">// Returns 2 May 2003</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getadfullday'>
+      GetAdFullDay
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function returns the day for the given AD date object.</p>
+
+    <div class='pre p1 fill-light mt0'>new GetAdFullDay(adDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>adDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if adDate is string
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        the day.
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDay({<span class="hljs-attr">year</span>: <span class="hljs-number">2001</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">15</span>})
+<span class="hljs-comment">// Returns Thursday</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDay({<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>})
+<span class="hljs-comment">// Returns Friday</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDay(<span class="hljs-string">'2003-05-02'</span>, <span class="hljs-string">'YYYY-MM-DD'</span>)
+<span class="hljs-comment">// Returns Friday</span></pre>
+    
   
 
   
@@ -2631,9 +3074,9 @@
   </div>
   
 
-  <p>This function returns the day for the given AD date object.</p>
+  <p>This function returns the day for the given BS date object or date string.</p>
 
-    <div class='pre p1 fill-light mt0'>new GetBsFullDay(bsDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new GetBsFullDay(bsDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -2650,8 +3093,17 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>bsDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
+            <span class='code bold'>bsDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if bsDate is string
 
           </div>
           
@@ -2714,9 +3166,9 @@
   </div>
   
 
-  <p>This function returns the day for the given AD date object.</p>
+  <p>This function returns the day for the given BS date object or date string.</p>
 
-    <div class='pre p1 fill-light mt0'>new GetBsFullDayInUnicode(bsDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>new GetBsFullDayInUnicode(bsDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -2733,8 +3185,17 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>bsDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
+            <span class='code bold'>bsDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if bsDate is string
 
           </div>
           
@@ -2763,95 +3224,16 @@
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDay({<span class="hljs-attr">year</span>: <span class="hljs-number">2045</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">15</span>})
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDayInUnicode({<span class="hljs-attr">year</span>: <span class="hljs-number">2045</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">15</span>})
 <span class="hljs-comment">// Returns बुधवार</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDay({<span class="hljs-attr">year</span>: <span class="hljs-number">2077</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>})
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDayInUnicode({<span class="hljs-attr">year</span>: <span class="hljs-number">2077</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>})
 <span class="hljs-comment">// Returns मङ्गलवार</span></pre>
     
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='getadfullday'>
-      GetAdFullDay
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>This function returns the day for the given AD date object.</p>
-
-    <div class='pre p1 fill-light mt0'>new GetAdFullDay(adDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
       
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>adDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        the day.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDay({<span class="hljs-attr">year</span>: <span class="hljs-number">2001</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">15</span>})
-<span class="hljs-comment">// Returns Thursday</span></pre>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetAdFullDay({<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>})
-<span class="hljs-comment">// Returns Friday</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.GetBsFullDayInUnicode(<span class="hljs-string">'2077-05-02'</span>, <span class="hljs-string">'YYYY-MM-DD'</span>)
+<span class="hljs-comment">// Returns मङ्गलवार</span></pre>
     
   
 
@@ -2882,7 +3264,7 @@
 
   <p>This function returns the BS date object after adding the number of days.</p>
 
-    <div class='pre p1 fill-light mt0'>new BsAddDays(bsDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, noOfDays: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+    <div class='pre p1 fill-light mt0'>new BsAddDays(bsDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), noOfDays: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
   
   
 
@@ -2899,8 +3281,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>bsDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any object
+            <span class='code bold'>bsDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any date object or date string
 
           </div>
           
@@ -2910,6 +3292,15 @@
           <div>
             <span class='code bold'>noOfDays</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
 	    any number
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if bsDate is string
 
           </div>
           
@@ -2945,6 +3336,10 @@
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BsAddDays({<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>}, <span class="hljs-number">90</span>)
 <span class="hljs-comment">// Returns {year: 2003, month: 8, day: 1}</span></pre>
     
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BsAddDays(<span class="hljs-string">'2003-05-02'</span>, <span class="hljs-number">90</span>, <span class="hljs-string">'YYYY-MM-DD'</span>)
+<span class="hljs-comment">// '2003-08-01'</span></pre>
+    
   
 
   
@@ -2974,7 +3369,7 @@
 
   <p>This function returns that number of days between the two AD dates objects.</p>
 
-    <div class='pre p1 fill-light mt0'>new AdDatesDiff(startDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, endDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+    <div class='pre p1 fill-light mt0'>new AdDatesDiff(startDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), endDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
   
   
 
@@ -2991,8 +3386,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>startDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
+            <span class='code bold'>startDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any AD date object or date string
 
           </div>
           
@@ -3000,8 +3395,17 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>endDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any date object
+            <span class='code bold'>endDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any AD date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if startDate or endDate is string
 
           </div>
           
@@ -3037,6 +3441,14 @@
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AdDatesDiff({<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">8</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>})
 <span class="hljs-comment">// Returns 91</span></pre>
     
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AdDatesDiff(<span class="hljs-string">'2003-05-02'</span>, <span class="hljs-string">'2003-08-01'</span>)
+<span class="hljs-comment">// Returns 91</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.AdDatesDiff(<span class="hljs-string">'2003-05-02'</span>, <span class="hljs-string">'2003-08-01'</span>, <span class="hljs-string">'YYYY-MM-DD'</span>)
+<span class="hljs-comment">// Returns 91</span></pre>
+    
   
 
   
@@ -3066,7 +3478,7 @@
 
   <p>This function returns that number of days between the two BS dates.</p>
 
-    <div class='pre p1 fill-light mt0'>new BsDatesDiff(startDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, endDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+    <div class='pre p1 fill-light mt0'>new BsDatesDiff(startDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), endDate: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
   
   
 
@@ -3083,8 +3495,8 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>startDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any number
+            <span class='code bold'>startDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any BS date object or date string
 
           </div>
           
@@ -3092,8 +3504,17 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>endDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    any number
+            <span class='code bold'>endDate</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    any BS date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if startDate or endDate is string
 
           </div>
           
@@ -3127,6 +3548,10 @@
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BsDatesDiff({<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">2</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2003</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">8</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>})
+<span class="hljs-comment">// Returns 90</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BsDatesDiff(<span class="hljs-string">'2003-05-02'</span>, <span class="hljs-string">'2003-08-01'</span>, <span class="hljs-string">'YYYY-MM-DD'</span>)
 <span class="hljs-comment">// Returns 90</span></pre>
     
   
@@ -3332,6 +3757,249 @@
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='comparebsdates'>
+      CompareBsDates
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function returns true if date is greater</p>
+
+    <div class='pre p1 fill-light mt0'>new CompareBsDates(date1: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), date2: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>date1</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    first date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>date2</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    second date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if startDate or endDate is string
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        true if date1 is greater than date2
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.CompareBsDates({<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>})
+<span class="hljs-comment">// Returns true</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.CompareBsDates({<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>})
+<span class="hljs-comment">// Returns false</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.CompareBsDates(<span class="hljs-string">'2076-02-01'</span>, <span class="hljs-string">'2076-01-01'</span>)
+<span class="hljs-comment">// Returns true</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.CompareBsDates(<span class="hljs-string">'2076-02-01'</span>, <span class="hljs-string">'2076-03-01'</span>)
+<span class="hljs-comment">// Returns false</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='betweenbsdates'>
+      BetweenBsDates
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>This function returns if checkDate is between startDate and endDate</p>
+
+    <div class='pre p1 fill-light mt0'>new BetweenBsDates(checkDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, startDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, endDate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, dateFormat: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, inclusive: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>checkDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    check date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>startDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    start date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>endDate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    end date object or date string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dateFormat</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    any available date formats and required only if startDate or endDate is string
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>inclusive</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        true if checkDate is between startDate and endDate
+
+      
+    
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BetweenBsDates({<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">5</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">10</span>})
+<span class="hljs-comment">// Returns true</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BetweenBsDates({<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">5</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">10</span>})
+<span class="hljs-comment">// Returns false</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BetweenBsDates(<span class="hljs-string">'2076-02-05'</span>, <span class="hljs-string">'2076-01-01'</span>, <span class="hljs-string">'2076-02-10'</span>)
+<span class="hljs-comment">// Returns true</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BetweenBsDates(<span class="hljs-string">'2076-01-01'</span>, <span class="hljs-string">'2076-01-05'</span>, <span class="hljs-string">'2076-02-10'</span>)
+<span class="hljs-comment">// Returns false</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BetweenBsDates(<span class="hljs-string">'2076/02/05'</span>, <span class="hljs-string">'2076/01/01'</span>, <span class="hljs-string">'2076/02/10'</span>, <span class="hljs-string">'YYYY/MM/DD'</span>)
+<span class="hljs-comment">// Returns true</span></pre>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.BetweenBsDates(<span class="hljs-string">'2076/01/01'</span>, <span class="hljs-string">'2076/01/05'</span>, <span class="hljs-string">'2076/02/10'</span>, <span class="hljs-string">'YYYY/MM/DD'</span>)
+<span class="hljs-comment">// Returns false</span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='converttounicode'>
       ConvertToUnicode
     </h3>
@@ -3394,7 +4062,7 @@
     
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.ConvertToUnicode(<span class="hljs-number">123.50</span>)
-<span class="hljs-comment">// Returns 31</span></pre>
+<span class="hljs-comment">// Returns १२३.५</span></pre>
     
   
 
@@ -3498,89 +4166,6 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='get2digitno'>
-      Get2DigitNo
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>This function returns two digit numbers.</p>
-
-    <div class='pre p1 fill-light mt0'>new Get2DigitNo(number: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>number</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
-	    any number
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        that number, with 0 appended if its less than 10.
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.Get2DigitNo(<span class="hljs-number">1</span>)
-<span class="hljs-comment">// Returns 01</span></pre>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.Get2DigitNo(<span class="hljs-number">12</span>)
-<span class="hljs-comment">// Returns 12</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='numbertowords'>
       NumberToWords
     </h3>
@@ -3647,18 +4232,18 @@
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">true</span>)
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWords(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">true</span>)
 <span class="hljs-comment">// Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand Rupees and Twelve Paisa</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">true</span>)</pre>
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWords(<span class="hljs-number">12</span>, <span class="hljs-literal">true</span>)</pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">false</span>)
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWords(<span class="hljs-number">123456000.12</span>, <span class="hljs-literal">false</span>)
 <span class="hljs-comment">// Returns Twelve Crore Thirty Four Lakh Fifty Six Thousand</span></pre>
     
       
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">false</span>)
+      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWords(<span class="hljs-number">12</span>, <span class="hljs-literal">false</span>)
 <span class="hljs-comment">// Returns Twelve</span></pre>
     
   
@@ -3759,98 +4344,6 @@
       
       <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.NumberToWordsUnicode(<span class="hljs-number">12</span>, <span class="hljs-literal">false</span>)
 <span class="hljs-comment">// Returns बाह्र</span></pre>
-    
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='comparebsdates'>
-      CompareBsDates
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>This function returns if date is greater</p>
-
-    <div class='pre p1 fill-light mt0'>new CompareBsDates(date1: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, date2: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>date1</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    first date object
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>date2</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    second date object
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
-        true if date1 is greater than date2
-
-      
-    
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.CompareBsDates({<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>})
-<span class="hljs-comment">// Returns true</span></pre>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>NepaliFunctions.CompareBsDates({<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>}, {<span class="hljs-attr">year</span>: <span class="hljs-number">2076</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">day</span>: <span class="hljs-number">1</span>})
-<span class="hljs-comment">// Returns false</span></pre>
     
   
 
