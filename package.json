@@ -1,18 +1,18 @@
 {
-  "name": "@sajanm/nepali-functions",
-  "version": "1.4.2",
-  "description": "Nepali Functions",
-  "main": "",
-  "scripts": {
-    "test": "jasmine"
-  },
-  "author": "Sajan Maharjan",
-  "license": "MIT",
-  "repository": "sajanm/nepali-functions",
-  "keywords": [
-    "nepali functions"
-  ],
-  "devDependencies": {
-    "jasmine": "^4.4.0"
-  }
+    "name": "@sajanm/nepali-functions",
+    "version": "1.4.3",
+    "description": "Nepali Functions",
+    "main": "",
+    "scripts": {
+        "test": "jasmine"
+    },
+    "author": "Sajan Maharjan",
+    "license": "MIT",
+    "repository": "sajanm/nepali-functions",
+    "keywords": [
+        "nepali functions"
+    ],
+    "devDependencies": {
+        "jasmine": "^4.4.0"
+    }
 }
