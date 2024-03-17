@@ -87,25 +87,25 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should convert to date format", function () {
-        var dateString1 = NepaliFunctions.ConvertDateFormat(
+        var dateString1 = NepaliFunctions.ConvertToDateFormat(
             { year: 2000, month: 1, day: 1 },
             "YYYY-MM-DD"
         );
         expect(dateString1).toEqual("2000-01-01");
 
-        var dateString1 = NepaliFunctions.ConvertDateFormat(
+        var dateString1 = NepaliFunctions.ConvertToDateFormat(
             { year: 2000, month: 1, day: 1 },
             "YYYY/MM/DD"
         );
         expect(dateString1).toEqual("2000/01/01");
 
-        var dateString1 = NepaliFunctions.ConvertDateFormat(
+        var dateString1 = NepaliFunctions.ConvertToDateFormat(
             { year: 2000, month: 1, day: 1 },
             "MM-DD-YYYY"
         );
         expect(dateString1).toEqual("01-01-2000");
 
-        var dateString1 = NepaliFunctions.ConvertDateFormat(
+        var dateString1 = NepaliFunctions.ConvertToDateFormat(
             { year: 2000, month: 1, day: 1 },
             "MM/DD/YYYY"
         );
@@ -155,44 +155,44 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should validate bs date", function () {
-        var isBsDate = NepaliFunctions.ValidateBsDate({
+        var isBsDate = NepaliFunctions.BS.ValidateDate({
             year: 2000,
             month: 2,
             day: 30,
         });
         expect(isBsDate).toEqual(true);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate({
+        var isBsDate = NepaliFunctions.BS.ValidateDate({
             year: 2064,
             month: 4,
             day: 32,
         });
         expect(isBsDate).toEqual(true);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate({
+        var isBsDate = NepaliFunctions.BS.ValidateDate({
             year: 2000,
             month: 13,
             day: 30,
         });
         expect(isBsDate).toEqual(false);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate({
+        var isBsDate = NepaliFunctions.BS.ValidateDate({
             year: 2000,
             month: 12,
             day: 32,
         });
         expect(isBsDate).toEqual(false);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate("2078-01-05");
+        var isBsDate = NepaliFunctions.BS.ValidateDate("2078-01-05");
         expect(isBsDate).toEqual(true);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate("2078-01-32");
+        var isBsDate = NepaliFunctions.BS.ValidateDate("2078-01-32");
         expect(isBsDate).toEqual(false);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate("2078/01/30");
+        var isBsDate = NepaliFunctions.BS.ValidateDate("2078/01/30");
         expect(isBsDate).toEqual(false);
 
-        var isBsDate = NepaliFunctions.ValidateBsDate(
+        var isBsDate = NepaliFunctions.BS.ValidateDate(
             "2078/01/30",
             "YYYY/MM/DD"
         );
@@ -200,23 +200,23 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return current AD date", function () {
-        var adDate = NepaliFunctions.GetCurrentAdDate();
+        var adDate = NepaliFunctions.AD.GetCurrentDate();
         expect(typeof adDate).toEqual("object");
 
-        var adDate = NepaliFunctions.GetCurrentAdDate("YYYY-MM-DD");
+        var adDate = NepaliFunctions.AD.GetCurrentDate("YYYY-MM-DD");
         expect(typeof adDate).toEqual("string");
     });
 
     it("should return current BS date", function () {
-        var bsDate = NepaliFunctions.GetCurrentBsDate();
+        var bsDate = NepaliFunctions.BS.GetCurrentDate();
         expect(typeof bsDate).toEqual("object");
 
-        var bsDate = NepaliFunctions.GetCurrentBsDate("YYYY-MM-DD");
+        var bsDate = NepaliFunctions.BS.GetCurrentDate("YYYY-MM-DD");
         expect(typeof bsDate).toEqual("string");
     });
 
     it("should return Ad months", function () {
-        var adMonths = NepaliFunctions.GetAdMonths();
+        var adMonths = NepaliFunctions.AD.GetMonths();
         expect(adMonths).toEqual([
             "January",
             "February",
@@ -234,24 +234,24 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return Ad month", function () {
-        var adMonth = NepaliFunctions.GetAdMonth(0);
+        var adMonth = NepaliFunctions.AD.GetMonth(0);
         expect(adMonth).toEqual("January");
 
-        var adMonth = NepaliFunctions.GetAdMonth(5);
+        var adMonth = NepaliFunctions.AD.GetMonth(5);
         expect(adMonth).toEqual("June");
 
-        var adMonth = NepaliFunctions.GetAdMonth(11);
+        var adMonth = NepaliFunctions.AD.GetMonth(11);
         expect(adMonth).toEqual("December");
 
-        var adMonth = NepaliFunctions.GetAdMonth(-1);
+        var adMonth = NepaliFunctions.AD.GetMonth(-1);
         expect(adMonth).toEqual(null);
 
-        var adMonth = NepaliFunctions.GetAdMonth(12);
+        var adMonth = NepaliFunctions.AD.GetMonth(12);
         expect(adMonth).toEqual(null);
     });
 
     it("should return Bs months", function () {
-        var bsMonths = NepaliFunctions.GetBsMonths();
+        var bsMonths = NepaliFunctions.BS.GetMonths();
         expect(bsMonths).toEqual([
             "Baisakh",
             "Jestha",
@@ -269,24 +269,24 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return Bs month", function () {
-        var bsMonth = NepaliFunctions.GetBsMonth(0);
+        var bsMonth = NepaliFunctions.BS.GetMonth(0);
         expect(bsMonth).toEqual("Baisakh");
 
-        var bsMonth = NepaliFunctions.GetBsMonth(5);
+        var bsMonth = NepaliFunctions.BS.GetMonth(5);
         expect(bsMonth).toEqual("Ashoj");
 
-        var bsMonth = NepaliFunctions.GetBsMonth(11);
+        var bsMonth = NepaliFunctions.BS.GetMonth(11);
         expect(bsMonth).toEqual("Chaitra");
 
-        var bsMonth = NepaliFunctions.GetBsMonth(-1);
+        var bsMonth = NepaliFunctions.BS.GetMonth(-1);
         expect(bsMonth).toEqual(null);
 
-        var bsMonth = NepaliFunctions.GetBsMonth(12);
+        var bsMonth = NepaliFunctions.BS.GetMonth(12);
         expect(bsMonth).toEqual(null);
     });
 
     it("should return the BS months in unicode", function () {
-        var bsMonths = NepaliFunctions.GetBsMonthsInUnicode();
+        var bsMonths = NepaliFunctions.BS.GetMonthsInUnicode();
         expect(bsMonths).toEqual([
             "बैशाख",
             "जेठ",
@@ -304,24 +304,24 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return Bs month in unicode", function () {
-        var bsMonth = NepaliFunctions.GetBsMonthInUnicode(0);
+        var bsMonth = NepaliFunctions.BS.GetMonthInUnicode(0);
         expect(bsMonth).toEqual("बैशाख");
 
-        var bsMonth = NepaliFunctions.GetBsMonthInUnicode(5);
+        var bsMonth = NepaliFunctions.BS.GetMonthInUnicode(5);
         expect(bsMonth).toEqual("आश्विन");
 
-        var bsMonth = NepaliFunctions.GetBsMonthInUnicode(11);
+        var bsMonth = NepaliFunctions.BS.GetMonthInUnicode(11);
         expect(bsMonth).toEqual("चैत्र");
 
-        var bsMonth = NepaliFunctions.GetBsMonthInUnicode(-1);
+        var bsMonth = NepaliFunctions.BS.GetMonthInUnicode(-1);
         expect(bsMonth).toEqual(null);
 
-        var bsMonth = NepaliFunctions.GetBsMonthInUnicode(12);
+        var bsMonth = NepaliFunctions.BS.GetMonthInUnicode(12);
         expect(bsMonth).toEqual(null);
     });
 
     it("should return the BS days in unicode", function () {
-        var bsMonths = NepaliFunctions.GetBsDaysUnicode();
+        var bsMonths = NepaliFunctions.BS.GetDaysUnicode();
         expect(bsMonths).toEqual([
             "आइतवार",
             "सोमवार",
@@ -334,34 +334,34 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return Bs day in unicode", function () {
-        var bsMonth = NepaliFunctions.GetBsDayUnicode(0);
+        var bsMonth = NepaliFunctions.BS.GetDayUnicode(0);
         expect(bsMonth).toEqual("आइतवार");
 
-        var bsMonth = NepaliFunctions.GetBsDayUnicode(4);
+        var bsMonth = NepaliFunctions.BS.GetDayUnicode(4);
         expect(bsMonth).toEqual("बिहिवार");
 
-        var bsMonth = NepaliFunctions.GetBsDayUnicode(7);
+        var bsMonth = NepaliFunctions.BS.GetDayUnicode(7);
         expect(bsMonth).toEqual(null);
     });
 
     it("should return the BS days in unicode short", function () {
-        var bsMonths = NepaliFunctions.GetBsDaysUnicodeShort();
+        var bsMonths = NepaliFunctions.BS.GetDaysUnicodeShort();
         expect(bsMonths).toEqual(["आ", "सो", "मं", "बु", "बि", "शु", "श"]);
     });
 
     it("should return Bs day in unicode short", function () {
-        var bsMonth = NepaliFunctions.GetBsDayUnicodeShort(0);
+        var bsMonth = NepaliFunctions.BS.GetDayUnicodeShort(0);
         expect(bsMonth).toEqual("आ");
 
-        var bsMonth = NepaliFunctions.GetBsDayUnicodeShort(4);
+        var bsMonth = NepaliFunctions.BS.GetDayUnicodeShort(4);
         expect(bsMonth).toEqual("बि");
 
-        var bsMonth = NepaliFunctions.GetBsDayUnicodeShort(7);
+        var bsMonth = NepaliFunctions.BS.GetDayUnicodeShort(7);
         expect(bsMonth).toEqual(null);
     });
 
     it("should return the Ad days", function () {
-        var adDays = NepaliFunctions.GetAdDays();
+        var adDays = NepaliFunctions.AD.GetDays();
         expect(adDays).toEqual([
             "Sunday",
             "Monday",
@@ -374,88 +374,88 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return Ad day", function () {
-        var adDay = NepaliFunctions.GetAdDay(0);
+        var adDay = NepaliFunctions.AD.GetDay(0);
         expect(adDay).toEqual("Sunday");
 
-        var adDay = NepaliFunctions.GetAdDay(5);
+        var adDay = NepaliFunctions.AD.GetDay(5);
         expect(adDay).toEqual("Friday");
 
-        var adDay = NepaliFunctions.GetAdDay(7);
+        var adDay = NepaliFunctions.AD.GetDay(7);
         expect(adDay).toEqual(null);
     });
 
     it("should return the Ad days short", function () {
-        var adDays = NepaliFunctions.GetAdDaysShort();
+        var adDays = NepaliFunctions.AD.GetDaysShort();
         expect(adDays).toEqual(["S", "M", "T", "W", "T", "F", "S"]);
     });
 
     it("should return Ad day", function () {
-        var adDay = NepaliFunctions.GetAdDayShort(0);
+        var adDay = NepaliFunctions.AD.GetDayShort(0);
         expect(adDay).toEqual("S");
 
-        var adDay = NepaliFunctions.GetAdDayShort(5);
+        var adDay = NepaliFunctions.AD.GetDayShort(5);
         expect(adDay).toEqual("F");
 
-        var adDay = NepaliFunctions.GetAdDayShort(7);
+        var adDay = NepaliFunctions.AD.GetDayShort(7);
         expect(adDay).toEqual(null);
     });
 
     it("should return full Bs date", function () {
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             { year: 2075, month: 3, day: 15 },
             false
         );
         expect(bsDate).toEqual("15 Ashar 2075");
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             { year: 2075, month: 5, day: 2 },
             false
         );
         expect(bsDate).toEqual("2 Bhadra 2075");
 
-        var bsDate = NepaliFunctions.GetBsFullDate("2075-03-15", false);
+        var bsDate = NepaliFunctions.BS.GetFullDate("2075-03-15", false);
         expect(bsDate).toEqual("15 Ashar 2075");
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             "2075-03-15",
             false,
             "YYYY-MM-DD"
         );
         expect(bsDate).toEqual("15 Ashar 2075");
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             "2075/03/15",
             false,
             "YYYY/MM/DD"
         );
         expect(bsDate).toEqual("15 Ashar 2075");
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             "2075-03-15",
             false,
             "YYYY/MM/DD"
         );
         expect(bsDate).toEqual(null);
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             { year: 2075, month: 3, day: 15 },
             true
         );
         expect(bsDate).toEqual("१५ अषाढ २०७५");
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             { year: 2075, month: 5, day: 2 },
             true
         );
         expect(bsDate).toEqual("२ भाद्र २०७५");
 
-        var bsDate = NepaliFunctions.GetBsFullDate("2075-05-02", true);
+        var bsDate = NepaliFunctions.BS.GetFullDate("2075-05-02", true);
         expect(bsDate).toEqual("२ भाद्र २०७५");
 
-        var bsDate = NepaliFunctions.GetBsFullDate("2075/05/02", true);
+        var bsDate = NepaliFunctions.BS.GetFullDate("2075/05/02", true);
         expect(bsDate).toEqual(null);
 
-        var bsDate = NepaliFunctions.GetBsFullDate(
+        var bsDate = NepaliFunctions.BS.GetFullDate(
             "2075/05/02",
             true,
             "YYYY/MM/DD"
@@ -464,39 +464,39 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return full Ad date", function () {
-        var adDate = NepaliFunctions.GetAdFullDate({
+        var adDate = NepaliFunctions.AD.GetFullDate({
             year: 2001,
             month: 3,
             day: 15,
         });
         expect(adDate).toEqual("15 March 2001");
 
-        var adDate = NepaliFunctions.GetAdFullDate({
+        var adDate = NepaliFunctions.AD.GetFullDate({
             year: 2003,
             month: 5,
             day: 2,
         });
         expect(adDate).toEqual("2 May 2003");
 
-        var adDate = NepaliFunctions.GetAdFullDate("2003-05-02");
+        var adDate = NepaliFunctions.AD.GetFullDate("2003-05-02");
         expect(adDate).toEqual("2 May 2003");
 
-        var adDate = NepaliFunctions.GetAdFullDate("2003/05/02");
+        var adDate = NepaliFunctions.AD.GetFullDate("2003/05/02");
         expect(adDate).toEqual(null);
 
-        var adDate = NepaliFunctions.GetAdFullDate("2003/05/02", "YYYY/MM/DD");
+        var adDate = NepaliFunctions.AD.GetFullDate("2003/05/02", "YYYY/MM/DD");
         expect(adDate).toEqual("2 May 2003");
     });
 
     it("should return full Bs day", function () {
-        var bsDay = NepaliFunctions.GetBsFullDay({
+        var bsDay = NepaliFunctions.BS.GetFullDay({
             year: 2045,
             month: 3,
             day: 15,
         });
         expect(bsDay).toEqual("Wednesday");
 
-        var bsDay = NepaliFunctions.GetBsFullDay({
+        var bsDay = NepaliFunctions.BS.GetFullDay({
             year: 2077,
             month: 5,
             day: 2,
@@ -505,14 +505,14 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return full Bs day in unicode", function () {
-        var bsDay = NepaliFunctions.GetBsFullDayInUnicode({
+        var bsDay = NepaliFunctions.BS.GetFullDayInUnicode({
             year: 2045,
             month: 3,
             day: 15,
         });
         expect(bsDay).toEqual("बुधवार");
 
-        var bsDay = NepaliFunctions.GetBsFullDayInUnicode({
+        var bsDay = NepaliFunctions.BS.GetFullDayInUnicode({
             year: 2077,
             month: 5,
             day: 2,
@@ -521,80 +521,80 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return full Ad day", function () {
-        var adDay = NepaliFunctions.GetAdFullDay({
+        var adDay = NepaliFunctions.AD.GetFullDay({
             year: 2001,
             month: 3,
             day: 15,
         });
         expect(adDay).toEqual("Thursday");
 
-        var adDay = NepaliFunctions.GetAdFullDay({
+        var adDay = NepaliFunctions.AD.GetFullDay({
             year: 2003,
             month: 5,
             day: 2,
         });
         expect(adDay).toEqual("Friday");
 
-        var adDay = NepaliFunctions.GetAdFullDay("2001-03-15");
+        var adDay = NepaliFunctions.AD.GetFullDay("2001-03-15");
         expect(adDay).toEqual("Thursday");
 
-        var adDay = NepaliFunctions.GetAdFullDay("2003-05-02", "YYYY-MM-DD");
+        var adDay = NepaliFunctions.AD.GetFullDay("2003-05-02", "YYYY-MM-DD");
         expect(adDay).toEqual("Friday");
 
-        var adDay = NepaliFunctions.GetAdFullDay("2003/05/02", "YYYY/MM/DD");
+        var adDay = NepaliFunctions.AD.GetFullDay("2003/05/02", "YYYY/MM/DD");
         expect(adDay).toEqual("Friday");
     });
 
     it("should return full Bs day", function () {
-        var adDay = NepaliFunctions.GetBsFullDay({
+        var adDay = NepaliFunctions.BS.GetFullDay({
             year: 2045,
             month: 3,
             day: 15,
         });
         expect(adDay).toEqual("Wednesday");
 
-        var adDay = NepaliFunctions.GetBsFullDay({
+        var adDay = NepaliFunctions.BS.GetFullDay({
             year: 2077,
             month: 5,
             day: 2,
         });
         expect(adDay).toEqual("Tuesday");
 
-        var adDay = NepaliFunctions.GetBsFullDay("2045-03-15");
+        var adDay = NepaliFunctions.BS.GetFullDay("2045-03-15");
         expect(adDay).toEqual("Wednesday");
 
-        var adDay = NepaliFunctions.GetBsFullDay("2077-05-02", "YYYY-MM-DD");
+        var adDay = NepaliFunctions.BS.GetFullDay("2077-05-02", "YYYY-MM-DD");
         expect(adDay).toEqual("Tuesday");
 
-        var adDay = NepaliFunctions.GetBsFullDay("2077/05/02", "YYYY/MM/DD");
+        var adDay = NepaliFunctions.BS.GetFullDay("2077/05/02", "YYYY/MM/DD");
         expect(adDay).toEqual("Tuesday");
     });
 
     it("should return full Bs day in unicode", function () {
-        var adDay = NepaliFunctions.GetBsFullDayInUnicode({
+        var adDay = NepaliFunctions.BS.GetFullDayInUnicode({
             year: 2045,
             month: 3,
             day: 15,
         });
         expect(adDay).toEqual("बुधवार");
 
-        var adDay = NepaliFunctions.GetBsFullDayInUnicode({
+        var adDay = NepaliFunctions.BS.GetFullDayInUnicode({
             year: 2077,
             month: 5,
             day: 2,
         });
         expect(adDay).toEqual("मङ्गलवार");
 
-        var adDay = NepaliFunctions.GetBsFullDayInUnicode("2045-03-15");
+        var adDay = NepaliFunctions.BS.GetFullDayInUnicode("2045-03-15");
         expect(adDay).toEqual("बुधवार");
 
-        var adDay = NepaliFunctions.GetBsFullDayInUnicode(
+        var adDay = NepaliFunctions.BS.GetFullDayInUnicode(
             "2077-05-02",
             "YYYY-MM-DD"
         );
         expect(adDay).toEqual("मङ्गलवार");
 
-        var adDay = NepaliFunctions.GetBsFullDayInUnicode(
+        var adDay = NepaliFunctions.BS.GetFullDayInUnicode(
             "2077/05/02",
             "YYYY/MM/DD"
         );
@@ -602,42 +602,42 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should add days to bs date", function () {
-        var bsDate = NepaliFunctions.BsAddDays(
+        var bsDate = NepaliFunctions.BS.AddDays(
             { year: 2001, month: 3, day: 15 },
             2
         );
         expect(bsDate).toEqual({ year: 2001, month: 3, day: 17 });
 
-        var bsDate = NepaliFunctions.BsAddDays(
+        var bsDate = NepaliFunctions.BS.AddDays(
             { year: 2003, month: 5, day: 2 },
             90
         );
         expect(bsDate).toEqual({ year: 2003, month: 8, day: 1 });
 
-        var bsDate = NepaliFunctions.BsAddDays("2001-03-15", 2);
+        var bsDate = NepaliFunctions.BS.AddDays("2001-03-15", 2);
         expect(bsDate).toEqual("2001-03-17");
 
-        var bsDate = NepaliFunctions.BsAddDays("2003/05/02", 90, "YYYY/MM/DD");
+        var bsDate = NepaliFunctions.BS.AddDays("2003/05/02", 90, "YYYY/MM/DD");
         expect(bsDate).toEqual("2003/08/01");
     });
 
     it("should return number of days between two Ad date objects", function () {
-        var diff = NepaliFunctions.AdDatesDiff(
+        var diff = NepaliFunctions.AD.DatesDiff(
             { year: 2001, month: 3, day: 15 },
             { year: 2001, month: 3, day: 17 }
         );
         expect(diff).toEqual(2);
 
-        var diff = NepaliFunctions.AdDatesDiff(
+        var diff = NepaliFunctions.AD.DatesDiff(
             { year: 2003, month: 5, day: 2 },
             { year: 2003, month: 8, day: 1 }
         );
         expect(diff).toEqual(91);
 
-        var diff = NepaliFunctions.AdDatesDiff("2001-03-15", "2001-03-17");
+        var diff = NepaliFunctions.AD.DatesDiff("2001-03-15", "2001-03-17");
         expect(diff).toEqual(2);
 
-        var diff = NepaliFunctions.AdDatesDiff(
+        var diff = NepaliFunctions.AD.DatesDiff(
             "2003/05/02",
             "2003/08/01",
             "YYYY/MM/DD"
@@ -646,22 +646,22 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return number of days between two Bs date objects", function () {
-        var diff = NepaliFunctions.BsDatesDiff(
+        var diff = NepaliFunctions.BS.DatesDiff(
             { year: 2001, month: 3, day: 15 },
             { year: 2001, month: 3, day: 17 }
         );
         expect(diff).toEqual(2);
 
-        var diff = NepaliFunctions.BsDatesDiff(
+        var diff = NepaliFunctions.BS.DatesDiff(
             { year: 2003, month: 5, day: 2 },
             { year: 2003, month: 8, day: 1 }
         );
         expect(diff).toEqual(90);
 
-        var diff = NepaliFunctions.BsDatesDiff("2001-03-15", "2001-03-17");
+        var diff = NepaliFunctions.BS.DatesDiff("2001-03-15", "2001-03-17");
         expect(diff).toEqual(2);
 
-        var diff = NepaliFunctions.BsDatesDiff(
+        var diff = NepaliFunctions.BS.DatesDiff(
             "2003/05/02",
             "2003/08/01",
             "YYYY/MM/DD"
@@ -670,18 +670,18 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return the number of days in the give Ad year month", function () {
-        var days = NepaliFunctions.GetDaysInAdMonth(2015, 2);
+        var days = NepaliFunctions.AD.GetDaysInMonth(2015, 2);
         expect(days).toEqual(28);
 
-        var days = NepaliFunctions.GetDaysInAdMonth(2020, 1);
+        var days = NepaliFunctions.AD.GetDaysInMonth(2020, 1);
         expect(days).toEqual(31);
     });
 
     it("shuould return the number of days in the given Bs year month", function () {
-        var days = NepaliFunctions.GetDaysInBsMonth(2015, 2);
+        var days = NepaliFunctions.BS.GetDaysInMonth(2015, 2);
         expect(days).toEqual(32);
 
-        var days = NepaliFunctions.GetDaysInBsMonth(2020, 1);
+        var days = NepaliFunctions.BS.GetDaysInMonth(2020, 1);
         expect(days).toEqual(31);
     });
 
@@ -739,28 +739,28 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return if checkdate is between startDate and endDate", function () {
-        var isBetween = NepaliFunctions.BetweenBsDates(
+        var isBetween = NepaliFunctions.BS.IsBetweenDates(
             { year: 2076, month: 2, day: 5 },
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 2, day: 10 }
         );
         expect(isBetween).toEqual(true);
 
-        var isBetween = NepaliFunctions.BetweenBsDates(
+        var isBetween = NepaliFunctions.BS.IsBetweenDates(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 1, day: 5 },
             { year: 2076, month: 2, day: 10 }
         );
         expect(isBetween).toEqual(false);
 
-        var isBetween = NepaliFunctions.BetweenBsDates(
+        var isBetween = NepaliFunctions.BS.IsBetweenDates(
             "2076-02-05",
             "2076-01-01",
             "2076-02-10"
         );
         expect(isBetween).toEqual(true);
 
-        var isBetween = NepaliFunctions.BetweenBsDates(
+        var isBetween = NepaliFunctions.BS.IsBetweenDates(
             "2076/01/01",
             "2076/01/05",
             "2076/02/10",
@@ -770,31 +770,31 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return true if date1 is greater than date2", function () {
-        var isGreater = NepaliFunctions.BsIsGreaterThan(
+        var isGreater = NepaliFunctions.BS.IsGreaterThan(
             { year: 2076, month: 2, day: 1 },
             { year: 2076, month: 1, day: 1 }
         );
         expect(isGreater).toEqual(true);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThan(
+        var isGreater = NepaliFunctions.BS.IsGreaterThan(
             { year: 2076, month: 2, day: 1 },
             { year: 2076, month: 3, day: 1 }
         );
         expect(isGreater).toEqual(false);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThan(
+        var isGreater = NepaliFunctions.BS.IsGreaterThan(
             { year: 2076, month: 2, day: 1 },
             { year: 2076, month: 2, day: 1 }
         );
         expect(isGreater).toEqual(false);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThan(
+        var isGreater = NepaliFunctions.BS.IsGreaterThan(
             "2076-02-01",
             "2076-01-01"
         );
         expect(isGreater).toEqual(true);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThan(
+        var isGreater = NepaliFunctions.BS.IsGreaterThan(
             "2076/02/01",
             "2076/03/01",
             "YYYY/MM/DD"
@@ -803,37 +803,37 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return true if date1 is greater than or equal to date2", function () {
-        var isGreater = NepaliFunctions.BsIsGreaterThanOrEqualTo(
+        var isGreater = NepaliFunctions.BS.IsGreaterThanOrEqualTo(
             { year: 2076, month: 2, day: 1 },
             { year: 2076, month: 1, day: 1 }
         );
         expect(isGreater).toEqual(true);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThanOrEqualTo(
+        var isGreater = NepaliFunctions.BS.IsGreaterThanOrEqualTo(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 1, day: 1 }
         );
         expect(isGreater).toEqual(true);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThanOrEqualTo(
+        var isGreater = NepaliFunctions.BS.IsGreaterThanOrEqualTo(
             { year: 2076, month: 2, day: 1 },
             { year: 2076, month: 3, day: 1 }
         );
         expect(isGreater).toEqual(false);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThanOrEqualTo(
+        var isGreater = NepaliFunctions.BS.IsGreaterThanOrEqualTo(
             "2076-02-01",
             "2076-01-01"
         );
         expect(isGreater).toEqual(true);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThanOrEqualTo(
+        var isGreater = NepaliFunctions.BS.IsGreaterThanOrEqualTo(
             "2076-01-01",
             "2076-01-01"
         );
         expect(isGreater).toEqual(true);
 
-        var isGreater = NepaliFunctions.BsIsGreaterThanOrEqualTo(
+        var isGreater = NepaliFunctions.BS.IsGreaterThanOrEqualTo(
             "2076/02/01",
             "2076/03/01",
             "YYYY/MM/DD"
@@ -842,22 +842,22 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return true if date1 is less than date2", function () {
-        var isLess = NepaliFunctions.BsIsLessThan(
+        var isLess = NepaliFunctions.BS.IsLessThan(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 2, day: 1 }
         );
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsLessThan(
+        var isLess = NepaliFunctions.BS.IsLessThan(
             { year: 2076, month: 3, day: 1 },
             { year: 2076, month: 2, day: 1 }
         );
         expect(isLess).toEqual(false);
 
-        var isLess = NepaliFunctions.BsIsLessThan("2076-01-01", "2076-02-01");
+        var isLess = NepaliFunctions.BS.IsLessThan("2076-01-01", "2076-02-01");
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsLessThan(
+        var isLess = NepaliFunctions.BS.IsLessThan(
             "2076/03/01",
             "2076/02/01",
             "YYYY/MM/DD"
@@ -866,37 +866,37 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return true if date1 is less than or equal to date2", function () {
-        var isLess = NepaliFunctions.BsIsLessThanOrEqualTo(
+        var isLess = NepaliFunctions.BS.IsLessThanOrEqualTo(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 2, day: 1 }
         );
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsLessThanOrEqualTo(
+        var isLess = NepaliFunctions.BS.IsLessThanOrEqualTo(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 1, day: 1 }
         );
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsLessThanOrEqualTo(
+        var isLess = NepaliFunctions.BS.IsLessThanOrEqualTo(
             { year: 2076, month: 3, day: 1 },
             { year: 2076, month: 2, day: 1 }
         );
         expect(isLess).toEqual(false);
 
-        var isLess = NepaliFunctions.BsIsLessThanOrEqualTo(
+        var isLess = NepaliFunctions.BS.IsLessThanOrEqualTo(
             "2076-01-01",
             "2076-02-01"
         );
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsLessThanOrEqualTo(
+        var isLess = NepaliFunctions.BS.IsLessThanOrEqualTo(
             "2076-01-01",
             "2076-01-01"
         );
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsLessThanOrEqualTo(
+        var isLess = NepaliFunctions.BS.IsLessThanOrEqualTo(
             "2076/03/01",
             "2076/02/01",
             "YYYY/MM/DD"
@@ -905,22 +905,22 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return true if date1 is equal to date2", function () {
-        var isLess = NepaliFunctions.BsIsEqualTo(
+        var isLess = NepaliFunctions.BS.IsEqualTo(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 1, day: 1 }
         );
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsEqualTo(
+        var isLess = NepaliFunctions.BS.IsEqualTo(
             { year: 2076, month: 1, day: 1 },
             { year: 2076, month: 2, day: 1 }
         );
         expect(isLess).toEqual(false);
 
-        var isLess = NepaliFunctions.BsIsEqualTo("2076-01-01", "2076-01-01");
+        var isLess = NepaliFunctions.BS.IsEqualTo("2076-01-01", "2076-01-01");
         expect(isLess).toEqual(true);
 
-        var isLess = NepaliFunctions.BsIsEqualTo(
+        var isLess = NepaliFunctions.BS.IsEqualTo(
             "2076/03/01",
             "2076/02/01",
             "YYYY/MM/DD"
