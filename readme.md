@@ -1,4 +1,4 @@
-# NepaliFunctions v1.4.2
+# NepaliFunctions v1.4.4
 
 ![Screenshot](https://github.com/sajanm/nepali-functions/blob/master/bg.jpg)
 
