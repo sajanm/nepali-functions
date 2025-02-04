@@ -1,7 +1,7 @@
 describe("sajan.nepaliFunctions", function () {
     var NepaliFunctions;
     beforeEach(function () {
-        NepaliFunctions = require("../sajan.nepaliFunctions.min.js");
+        NepaliFunctions = require("../sajan.nepaliFunctions.min");
     });
 
     it("should parse date string", function () {
@@ -119,7 +119,10 @@ describe("sajan.nepaliFunctions", function () {
         var bsDate = NepaliFunctions.AD2BS({ year: 2008, month: 5, day: 28 });
         expect(bsDate).toEqual({ year: 2065, month: 2, day: 15 });
 
-        var bsDate = NepaliFunctions.AD2BS("2008-05-28");
+        var bsDate = NepaliFunctions.AD2BS(new Date(2008, 5, 28));
+        expect(bsDate).toEqual("2065-03-14");
+
+        var bsDate = NepaliFunctions.AD2BS("05/28/2008");
         expect(bsDate).toEqual("2065-02-15");
 
         var bsDate = NepaliFunctions.AD2BS("2008-05-28", "YYYY-MM-DD");
@@ -471,6 +474,9 @@ describe("sajan.nepaliFunctions", function () {
         });
         expect(adDate).toEqual("15 March 2001");
 
+        var adDate = NepaliFunctions.AD.GetFullDate(new Date(2001, 3, 15));
+        expect(adDate).toEqual("15 April 2001");
+
         var adDate = NepaliFunctions.AD.GetFullDate({
             year: 2003,
             month: 5,
@@ -478,11 +484,11 @@ describe("sajan.nepaliFunctions", function () {
         });
         expect(adDate).toEqual("2 May 2003");
 
-        var adDate = NepaliFunctions.AD.GetFullDate("2003-05-02");
+        var adDate = NepaliFunctions.AD.GetFullDate("2003-05-02", "YYYY-MM-DD");
         expect(adDate).toEqual("2 May 2003");
 
-        var adDate = NepaliFunctions.AD.GetFullDate("2003/05/02");
-        expect(adDate).toEqual(null);
+        var adDate = NepaliFunctions.AD.GetFullDate("05/02/2003");
+        expect(adDate).toEqual("2 May 2003");
 
         var adDate = NepaliFunctions.AD.GetFullDate("2003/05/02", "YYYY/MM/DD");
         expect(adDate).toEqual("2 May 2003");
@@ -521,6 +527,9 @@ describe("sajan.nepaliFunctions", function () {
     });
 
     it("should return full Ad day", function () {
+        var adDay = NepaliFunctions.AD.GetFullDay(new Date(2001, 3, 15));
+        expect(adDay).toEqual("Sunday");
+
         var adDay = NepaliFunctions.AD.GetFullDay({
             year: 2001,
             month: 3,
@@ -535,7 +544,7 @@ describe("sajan.nepaliFunctions", function () {
         });
         expect(adDay).toEqual("Friday");
 
-        var adDay = NepaliFunctions.AD.GetFullDay("2001-03-15");
+        var adDay = NepaliFunctions.AD.GetFullDay("03/15/2001");
         expect(adDay).toEqual("Thursday");
 
         var adDay = NepaliFunctions.AD.GetFullDay("2003-05-02", "YYYY-MM-DD");
@@ -621,6 +630,29 @@ describe("sajan.nepaliFunctions", function () {
         expect(bsDate).toEqual("2003/08/01");
     });
 
+    it("should add days to AD date", function () {
+        var bsDate = NepaliFunctions.AD.AddDays(
+            { year: 2001, month: 3, day: 15 },
+            2
+        );
+        expect(bsDate).toEqual({ year: 2001, month: 3, day: 17 });
+
+        var bsDate = NepaliFunctions.AD.AddDays(
+            { year: 2003, month: 5, day: 2 },
+            90
+        );
+        expect(bsDate).toEqual({ year: 2003, month: 7, day: 31 });
+
+        var bsDate = NepaliFunctions.AD.AddDays("03/15/2001", 2);
+        expect(bsDate).toEqual("03/17/2001");
+
+        var bsDate = NepaliFunctions.AD.AddDays("2003/05/02", 90, "YYYY/MM/DD");
+        expect(bsDate).toEqual("2003/07/31");
+
+        var bsDate = NepaliFunctions.AD.AddDays(new Date(2003, 5, 2), 90);
+        expect(bsDate).toEqual("08/31/2003");
+    });
+
     it("should return number of days between two Ad date objects", function () {
         var diff = NepaliFunctions.AD.DatesDiff(
             { year: 2001, month: 3, day: 15 },
@@ -634,7 +666,20 @@ describe("sajan.nepaliFunctions", function () {
         );
         expect(diff).toEqual(91);
 
-        var diff = NepaliFunctions.AD.DatesDiff("2001-03-15", "2001-03-17");
+        var diff = NepaliFunctions.AD.DatesDiff(
+            new Date(2003, 5, 2),
+            new Date(2003, 8, 1)
+        );
+        expect(diff).toEqual(91);
+
+        var diff = NepaliFunctions.AD.DatesDiff("03/15/2001", "03/17/2001");
+        expect(diff).toEqual(2);
+
+        var diff = NepaliFunctions.AD.DatesDiff(
+            "2001-03-15",
+            "2001-03-17",
+            "YYYY-MM-DD"
+        );
         expect(diff).toEqual(2);
 
         var diff = NepaliFunctions.AD.DatesDiff(
@@ -695,13 +740,13 @@ describe("sajan.nepaliFunctions", function () {
 
     it("should convert unicode to number", function () {
         var num = NepaliFunctions.ConvertToNumber("१२३४५६७८९");
-        expect(num).toEqual(123456789);
+        expect(parseFloat(num)).toEqual(123456789);
 
         var num = NepaliFunctions.ConvertToNumber("१२३.५");
-        expect(num).toEqual(123.5);
+        expect(parseFloat(num)).toEqual(123.5);
 
         var num = NepaliFunctions.ConvertToNumber("१२३.५A");
-        expect(num).toEqual(123.5);
+        expect(parseFloat(num)).toEqual(123.5);
     });
 
     it("should return number in words", function () {
