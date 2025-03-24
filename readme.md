@@ -1,4 +1,4 @@
-# NepaliFunctions v1.4.7
+# NepaliFunctions v1.4.8
 
 ![Screenshot](https://github.com/sajanm/nepali-functions/blob/master/bg.jpg)
 
@@ -29,59 +29,59 @@ Include the nepaliFunctions.min.js in your application, then you are done.
 
 ```html
 <script
-    src="nepaliFunctions.min.js"
-    type="text/javascript"
-    charset="utf-8"
+  src="nepaliFunctions.min.js"
+  type="text/javascript"
+  charset="utf-8"
 ></script>
 ```
 
 **Available Functions**
 
--   AD2BS
--   BS2AD
--   ConvertToDateFormat
--   ConvertToDateObject
--   ConvertToNumber
--   ConvertToUnicode
--   NumberToWords
--   NumberToWordsUnicode
--   ParseDate
--   AD.DatesDiff
--   AD.GetCurrentDate
--   AD.GetCurrentDay
--   AD.GetCurrentMonth
--   AD.GetCurrentYear
--   AD.GetDay
--   AD.GetDays
--   AD.GetDaysInMonth
--   AD.GetDaysShort
--   AD.GetDaysShort
--   AD.GetFullDate
--   AD.GetFullDay
--   AD.GetMonth
--   AD.GetMonths
--   BS.AddDays
--   BS.DatesDiff
--   BS.GetCurrentDate
--   BS.GetCurrentDay
--   BS.GetCurrentMonth
--   BS.GetCurrentYear
--   BS.GetDayInUnicode
--   BS.GetDayInUnicodeShort
--   BS.GetDaysInMonth
--   BS.GetDaysInUnicode
--   BS.GetDaysInUnicodeShort
--   BS.GetFullDate
--   BS.GetFullDay
--   BS.GetFullDayInUnicode
--   BS.GetMonth
--   BS.GetMonthInUnicode
--   BS.GetMonths
--   BS.GetMonthsInUnicode
--   BS.IsBetweenDates
--   BS.IsEqualTo
--   BS.IsGreaterThan
--   BS.IsGreaterThanOrEqualTo
--   BS.IsLessThan
--   BS.IsLessThanOrEqualTo
--   BS.ValidateDate
+- AD2BS
+- BS2AD
+- ConvertToDateFormat
+- ConvertToDateObject
+- ConvertToNumber
+- ConvertToUnicode
+- NumberToWords
+- NumberToWordsUnicode
+- ParseDate
+- AD.DatesDiff
+- AD.GetCurrentDate
+- AD.GetCurrentDay
+- AD.GetCurrentMonth
+- AD.GetCurrentYear
+- AD.GetDay
+- AD.GetDays
+- AD.GetDaysInMonth
+- AD.GetDaysShort
+- AD.GetDaysShort
+- AD.GetFullDate
+- AD.GetFullDay
+- AD.GetMonth
+- AD.GetMonths
+- BS.AddDays
+- BS.DatesDiff
+- BS.GetCurrentDate
+- BS.GetCurrentDay
+- BS.GetCurrentMonth
+- BS.GetCurrentYear
+- BS.GetDayInUnicode
+- BS.GetDayInUnicodeShort
+- BS.GetDaysInMonth
+- BS.GetDaysInUnicode
+- BS.GetDaysInUnicodeShort
+- BS.GetFullDate
+- BS.GetFullDay
+- BS.GetFullDayInUnicode
+- BS.GetMonth
+- BS.GetMonthInUnicode
+- BS.GetMonths
+- BS.GetMonthsInUnicode
+- BS.IsBetweenDates
+- BS.IsEqualTo
+- BS.IsGreaterThan
+- BS.IsGreaterThanOrEqualTo
+- BS.IsLessThan
+- BS.IsLessThanOrEqualTo
+- BS.ValidateDate
