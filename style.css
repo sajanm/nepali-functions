@@ -1,0 +1,55 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+pre {
+  background: #f9f9f9;
+  padding: 15px;
+  color: green;
+}
+
+#examples p {
+  background: #f9f9f9;
+  padding: 15px;
+  padding-bottom: 10px;
+  margin: 0px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#examples pre {
+  background: #f9f9f9;
+  margin: 0px;
+  padding: 0px 15px 15px 15px;
+  color: green;
+}
+
+.github {
+  float: right;
+  padding-top: 35px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+footer {
+  font-size: 13px;
+  margin-top: 20px;
+  height: 80px;
+  width: 100%;
+}
+
+footer #footer-text {
+  padding: 25px 0;
+  border-top: 1px solid #ccc;
+}
